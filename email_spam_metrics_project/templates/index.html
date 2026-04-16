@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AI Email Spam Detector</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- TOP MOST HEADING -->
+<div class="main-title">
+🤖📧 AI Email Spam Detection Dashboard
+</div>
+
+<!-- INPUT + PREDICTION -->
+<div class="top-section">
+
+<h2>Email Input</h2>
+
+<textarea id="emailText" placeholder="Paste email content..."></textarea>
+
+<button onclick="predict()">Analyze Email</button>
+
+<h3 id="result">Waiting...</h3>
+
+<div class="progress">
+<div id="bar"></div>
+</div>
+
+<p class="confidence">Confidence: <span id="confidence">0%</span></p>
+
+</div>
+
+<!-- METRICS + CONFUSION -->
+<div class="bottom-section">
+
+<div class="panel metrics">
+
+<h3>Performance Metrics</h3>
+
+<div class="metric">Accuracy <span>{{accuracy}}%</span></div>
+<div class="metric">Precision <span>{{precision}}%</span></div>
+<div class="metric">Recall <span>{{recall}}%</span></div>
+<div class="metric">F1 Score <span>{{f1}}%</span></div>
+
+</div>
+
+<div class="panel matrix">
+
+<h3>Confusion Matrix</h3>
+
+<table>
+<tr>
+<th></th>
+<th>Pred 0</th>
+<th>Pred 1</th>
+</tr>
+
+<tr>
+<th>Actual 0</th>
+<td>{{cm[0][0]}}</td>
+<td>{{cm[0][1]}}</td>
+</tr>
+
+<tr>
+<th>Actual 1</th>
+<td>{{cm[1][0]}}</td>
+<td>{{cm[1][1]}}</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+</html>
